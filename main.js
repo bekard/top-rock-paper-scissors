@@ -99,6 +99,7 @@ function printResults(mode, results) {
 }
 
 function game() {
+    /*
     let playerScore = 0;
     let computerScore = 0;
     for (let index = 0; index < FIVE_ROUNDS; index++) {
@@ -113,6 +114,7 @@ function game() {
     }
     const results = getGameResults(playerScore, computerScore);
     printResults(PRINTRES_ALERT, results);
+    */
 }
 
 game();
