@@ -117,4 +117,12 @@ function game() {
     */
 }
 
+const btnRock = document.getElementById("rock");
+const btnPaper = document.getElementById("paper");
+const btnScissors = document.getElementById("scissors");
+
+btnRock.addEventListener("click", () => console.log(playRound(ROCK, computerPlay())));
+btnPaper.addEventListener("click", () => console.log(playRound(PAPER, computerPlay())));
+btnScissors.addEventListener("click", () => console.log(playRound(SCISSORS, computerPlay())));
+
 game();

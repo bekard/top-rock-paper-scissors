@@ -11,16 +11,30 @@
 <body>
   <ul id="buttons">
     <li>
-      <button>Rock</button>
+      <button id="rock">Rock</button>
     </li>
 
     <li>
-      <button>Paper</button>
+      <button id="paper">Paper</button>
     </li>
 
     <li>
-      <button>Scissors</button>
+      <button id="scissors">Scissors</button>
     </li>
   </ul>
+
+  <div id="choices">
+    <div class="score" id="player-score">0</div>
+    <div class="choice-holder">
+      <div style="font-size: 20px;">Your choice:</div>
+      <div class="palyer-choice">Rock</div>
+    </div>
+    <div class="choice-holder">
+      <div style="font-size: 20px;">Computer's choice:</div>
+      <div class="pc-choice">Paper</div>
+    </div>
+    <div class="score" id="pc-score">5</div>
+  </div>
+
 </body>
 </html>

@@ -1,7 +1,44 @@
+* {
+  font-family: Verdana, Geneva, Tahoma, sans-serif
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 15px;
+}
+
 #buttons {
   list-style-type: none;
+  margin: 0;
   padding: 0;
   display: flex;
   justify-content: center;
   gap: 20px;
+}
+
+#buttons button {
+  font-size: 15px;
+  min-width: 15vh;
+}
+
+#choices {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.choice-holder {
+  border: medium solid burlywood;
+}
+
+.score {
+  min-width: 10vh;
+  border: medium solid burlywood; 
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
 }
