@@ -1,5 +1,5 @@
 const THREE_CASES = 3;
-const GAME_ROUNDS = 7;
+const GAME_ROUNDS = 5;
 const ROCK = capitalize("rock");
 const PAPER = capitalize("paper");
 const SCISSORS = capitalize("scissors");
@@ -37,33 +37,35 @@ const PR_WIN = 1;
 const PR_LOSE = 0;
 const PR_DRAW = -1;
 
+const message = document.getElementById("message");
+
 function playRound(palyerChoice, computerChoice) {
     palyerChoice = capitalize(palyerChoice);
     computerChoice = capitalize(computerChoice);
 
     let result;
-    let message;
+    let text;
     if (palyerChoice === computerChoice) {
-        message = `Draw, player choice "${palyerChoice}" is equals to computer choice "${computerChoice}"`;
+        text = `Draw, player choice "${palyerChoice}" is equals to computer choice "${computerChoice}"`;
         result = PR_DRAW;
     }
     else if (palyerChoice === ROCK && computerChoice === SCISSORS ||
         palyerChoice === PAPER && computerChoice === ROCK ||
         palyerChoice === SCISSORS && computerChoice === PAPER) {
-        message = `You win! "${palyerChoice}" beats "${computerChoice}"`;
+        text = `You win round! "${palyerChoice}" beats "${computerChoice}"`;
         result = PR_WIN;
     }
     else if (palyerChoice === ROCK && computerChoice === PAPER ||
         palyerChoice === PAPER && computerChoice === SCISSORS ||
         palyerChoice === SCISSORS && computerChoice === ROCK) { 
-        message = `You lost. "${palyerChoice}" is beaten by "${computerChoice}"`;
+        text = `You lost round. "${palyerChoice}" is beaten by "${computerChoice}"`;
         result = PR_LOSE;
     }
     else {
-        message = `Undefined choice "${palyerChoice}"`;
+        text = `Undefined choice "${palyerChoice}"`;
         result = PR_DRAW;
     }
-    console.log(message);
+    message.textContent = text;
     return result;
 }
 
@@ -71,7 +73,7 @@ function getGameResults(playerScore, computerScore) {
     let results;
     const withScores = `with scores ${playerScore}:${computerScore}`;
     if (playerScore > computerScore) {
-        results = `Congratulations, you won ${withScores}!`;
+        results = `Congratulations, you won the game ${withScores}!`;
     }
     else if (playerScore < computerScore) {
         results = `Unfortunatly, but you lost ${withScores}.`;
@@ -79,6 +81,7 @@ function getGameResults(playerScore, computerScore) {
     else {
         results = `It's a draw ${withScores}.`
     }
+    results += "\nTo play one more time, please refresh the page.";
     return results;
 }
 
@@ -98,49 +101,36 @@ function printResults(mode, results) {
     }
 }
 
-function game() {
-    /*
-    let playerScore = 0;
-    let computerScore = 0;
-    for (let index = 0; index < FIVE_ROUNDS; index++) {
-        playerChoice = prompt("Please enter your choice: ");
-        const result = playRound(playerChoice, computerPlay());
-        if (result === PR_WIN) {
-            playerScore++;
-        }
-        else if (result === PR_LOSE){
-            computerScore++; 
-        }
-    }
-    const results = getGameResults(playerScore, computerScore);
-    printResults(PRINTRES_ALERT, results);
-    */
-}
-
 const btnRock = document.getElementById("rock");
 const btnPaper = document.getElementById("paper");
 const btnScissors = document.getElementById("scissors");
 
-let roundsCount = 0;
+const player = document.getElementById("player-score");
+const computer = document.getElementById("pc-score");
+
+let playerScore = 0;
+let computerScore = 0;
+let roundsCount = 1;
 let addRoundResult = (userChoice) => {
-    const result = playRound(userChoice, computerPlay());
-    if (result === PR_WIN) {
-        playerScore++;
-    }
-    else if (result === PR_LOSE){
-        computerScore++; 
+    if (roundsCount < GAME_ROUNDS) {
+        const result = playRound(userChoice, computerPlay());
+        if (result === PR_WIN) {
+            playerScore++;
+            player.textContent = playerScore;
+        }
+        else if (result === PR_LOSE){
+            computerScore++; 
+            computer.textContent = computerScore;
+        }
     }
 
     if (roundsCount === GAME_ROUNDS) {
-        // print who wins
-        // ask about new game
+        const results = getGameResults(playerScore, computerScore);
+        message.textContent = results;
     }
+    roundsCount++;
 };
 
-btnRock.addEventListener("click", () => console.log(playRound(ROCK, computerPlay())));
-btnPaper.addEventListener("click", () => console.log(playRound(PAPER, computerPlay())));
-btnScissors.addEventListener("click", () => console.log(playRound(SCISSORS, computerPlay())));
-
-
-
-game();
+btnRock.addEventListener("click", () => addRoundResult(ROCK));
+btnPaper.addEventListener("click", () => addRoundResult(PAPER));
+btnScissors.addEventListener("click", () => addRoundResult(SCISSORS));

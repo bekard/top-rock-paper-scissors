@@ -31,7 +31,7 @@ body {
 }
 
 #buttons button:active {
-  background-color: aquamarine;
+  background-color: #ccbea0;
 }
 
 #board {
@@ -62,6 +62,7 @@ body {
 }
 
 #message {
+  padding: 5px;
   border-radius: 3px;
   background-color: #6CAAA0;
   min-width: 50vw;
