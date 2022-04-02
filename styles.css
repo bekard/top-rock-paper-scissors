@@ -19,29 +19,36 @@ body {
   display: flex;
   justify-content: center;
   gap: 20px;
-  border: medium solid rebeccapurple;
 }
 
 #buttons button {
+  border: 2px solid #D14239;
+  padding: 10px;
   font-size: 15px;
   min-width: 10vw;
-  background-color: burlywood;
+  background-color: #FBEED1;
   border-radius: 5px;
 }
 
+#buttons button:active {
+  background-color: aquamarine;
+}
+
 #board {
+  border-radius: 3px;
+  background-color: #6CAAA0;
   padding-top: 20px;
   padding-bottom: 20px;
   display: flex;
   flex-flow: column wrap;
   align-items: center;
   justify-content: center;
-  border: medium solid rebeccapurple;
   gap: 10px;
 }
 .score {
+  border-radius: 3px;
   flex: 0 1 20%;
-  background-color: rgb(216, 216, 216);
+  background-color: #FBEED1;
   display: table-cell;
   vertical-align: middle;
   text-align: center;
@@ -55,9 +62,10 @@ body {
 }
 
 #message {
+  border-radius: 3px;
+  background-color: #6CAAA0;
   min-width: 50vw;
   text-align: center;
-  border: medium solid rebeccapurple;
   word-wrap: normal;
   font-size: 17px;
   font-weight: lighter;
