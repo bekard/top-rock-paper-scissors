@@ -13,32 +13,56 @@ body {
 
 #buttons {
   list-style-type: none;
-  margin: 0;
+  margin-top: 0;
+  margin-bottom: 0;
   padding: 0;
   display: flex;
   justify-content: center;
   gap: 20px;
+  border: medium solid rebeccapurple;
 }
 
 #buttons button {
   font-size: 15px;
-  min-width: 15vh;
+  min-width: 10vw;
+  background-color: burlywood;
+  border-radius: 5px;
 }
 
-#choices {
+#board {
+  padding-top: 20px;
+  padding-bottom: 20px;
   display: flex;
-  gap: 20px;
+  flex-flow: column wrap;
+  align-items: center;
   justify-content: center;
+  border: medium solid rebeccapurple;
+  gap: 10px;
 }
-
-.choice-holder {
-  border: medium solid burlywood;
-}
-
 .score {
-  min-width: 10vh;
-  border: medium solid burlywood; 
+  flex: 0 1 20%;
+  background-color: rgb(216, 216, 216);
   display: table-cell;
   vertical-align: middle;
   text-align: center;
+}
+
+#scores {
+  align-self: stretch;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+#message {
+  min-width: 50vw;
+  text-align: center;
+  border: medium solid rebeccapurple;
+  word-wrap: normal;
+  font-size: 17px;
+  font-weight: lighter;
+}
+
+.same-margin {
+  margin-inline: 15vw;
 }

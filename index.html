@@ -9,32 +9,20 @@
   <title>Rock Paper Scissors Game</title>
 </head>
 <body>
-  <ul id="buttons">
-    <li>
-      <button id="rock">Rock</button>
-    </li>
-
-    <li>
-      <button id="paper">Paper</button>
-    </li>
-
-    <li>
-      <button id="scissors">Scissors</button>
-    </li>
+  <ul class="same-margin" id="buttons">
+    <li><button id="rock">Rock</button></li>
+    <li><button id="paper">Paper</button></li>
+    <li><button id="scissors">Scissors</button></li>
   </ul>
 
-  <div id="choices">
-    <div class="score" id="player-score">0</div>
-    <div class="choice-holder">
-      <div style="font-size: 20px;">Your choice:</div>
-      <div class="palyer-choice">Rock</div>
+  <div class="same-margin" id="board">
+    <div><strong>Scores:</strong></div>
+    <div id="scores">
+      <div class="score" id="player-score">0</div>
+      <div class="score" id="pc-score">5</div>
     </div>
-    <div class="choice-holder">
-      <div style="font-size: 20px;">Computer's choice:</div>
-      <div class="pc-choice">Paper</div>
-    </div>
-    <div class="score" id="pc-score">5</div>
   </div>
-
+  <div class="same-margin" id="message"><em>Message</em></div>
+  
 </body>
 </html>
