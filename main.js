@@ -1,5 +1,5 @@
 const THREE_CASES = 3;
-const FIVE_ROUNDS = 5;
+const GAME_ROUNDS = 7;
 const ROCK = capitalize("rock");
 const PAPER = capitalize("paper");
 const SCISSORS = capitalize("scissors");
@@ -121,8 +121,26 @@ const btnRock = document.getElementById("rock");
 const btnPaper = document.getElementById("paper");
 const btnScissors = document.getElementById("scissors");
 
+let roundsCount = 0;
+let addRoundResult = (userChoice) => {
+    const result = playRound(userChoice, computerPlay());
+    if (result === PR_WIN) {
+        playerScore++;
+    }
+    else if (result === PR_LOSE){
+        computerScore++; 
+    }
+
+    if (roundsCount === GAME_ROUNDS) {
+        // print who wins
+        // ask about new game
+    }
+};
+
 btnRock.addEventListener("click", () => console.log(playRound(ROCK, computerPlay())));
 btnPaper.addEventListener("click", () => console.log(playRound(PAPER, computerPlay())));
 btnScissors.addEventListener("click", () => console.log(playRound(SCISSORS, computerPlay())));
+
+
 
 game();
